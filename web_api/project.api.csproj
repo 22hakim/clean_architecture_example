@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <AssemblyName>project.api</AssemblyName>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>

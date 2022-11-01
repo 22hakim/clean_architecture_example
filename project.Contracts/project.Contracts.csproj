@@ -6,4 +6,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Authentication\" />
+    <None Remove="Controllers\" />
+    <PackageReference Include="Microsoft.AspNetCore.App" Version="6.0.10" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Authentication\" />
+    <Folder Include="Controllers\" />
+  </ItemGroup>
 </Project>
