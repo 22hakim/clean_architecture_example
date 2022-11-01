@@ -1,6 +1,19 @@
-# clean_architecture_example
+#clean_architecture_example
 
-this project contains :
+- [clean architecture example](#clean_architecture_example)
+    - [content](#content)
+        - [Auth](#Auth)
+            - [register](#register)
+                - [register request](#register-request)
+                - [register response](#register-response)
+            - [login](#login)
+                - [login request](#login-request)
+                - [login response](#login-response)
+
+
+#content
+
+##this project contains :
 - project.api : the controllers and Program.cs
 - project.Contracts : the authentication classes
 - project.Infra : the infrastructure of the app
@@ -13,12 +26,74 @@ project reference :
 - infra to application
 - application to Domain
 
-endpoints and handle :
-*Authentication
-    1. POST  ~/auth/register 
-    2. POST  ~/auth/login
-    3. Controller authenticationController in project.api
-    4. Authentication Request in project.Contracts
-    5. Handle Authentication Service in project.Application
+##Auth
+Authentication
+    1. Controller authenticationController in project.api
+    2. Authentication Request in project.Contracts
+    3. Handle Authentication Service in project.Application
+
+###register
+
+```js
+POST  ~/auth/register
+```
+
+#register request
+
+```json
+{
+    "firstname" : "john",
+    "lastname" : "Doe",
+    "email" : "john@doe.fr",
+    "password" : "blablabla"
+}
+```
 
 
+#register response
+
+```js
+200 OK
+```
+
+```json
+{
+    "id": "dejh987Ggug7898",
+    "firstname" : "john",
+    "lastname" : "Doe",
+    "email" : "john@doe.fr",
+    "token" : "dleieÇ!ÀHKàç98098"
+}
+```
+
+###login
+
+```js
+POST  ~/auth/login
+```
+
+#login-request
+
+```json
+{
+    "email" : "john@doe.fr",
+    "password" : "blablabla"
+}
+```
+
+
+#login-response
+
+```js
+200 OK
+```
+
+```json
+{
+    "id": "dejh987Ggug7898",
+    "firstname" : "john",
+    "lastname" : "Doe",
+    "email" : "john@doe.fr",
+    "token" : "dleieÇ!ÀHKàç98098"
+}
+```
