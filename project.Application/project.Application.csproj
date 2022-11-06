@@ -9,4 +9,12 @@
   <ItemGroup>
     <ProjectReference Include="..\project.Domain\project.Domain.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="Services\" />
+    <None Remove="Services\Authentication\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Services\" />
+    <Folder Include="Services\Authentication\" />
+  </ItemGroup>
 </Project>

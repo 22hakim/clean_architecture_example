@@ -1,7 +1,8 @@
 ﻿using System;
-namespace project.Contracts.Authentication;
+namespace project.Application.Services.Authentication;
 
-public record AuthenticationResponse(
+public record AuthenticationResult
+(
     Guid Id,
     string FirstName,
     string LastName,
