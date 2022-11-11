@@ -9,4 +9,16 @@
   <ItemGroup>
     <ProjectReference Include="..\project.Application\project.Application.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="Authentication\" />
+    <None Remove="Services\" />
+    <None Remove="System.IdentityModel.Tokens.Jwt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Authentication\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.25.0" />
+  </ItemGroup>
 </Project>
