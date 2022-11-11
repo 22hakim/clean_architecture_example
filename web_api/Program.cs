@@ -1,8 +1,9 @@
-﻿using project.Application.Services.Authentication;
+﻿using project.Application;
+using project.Infra;
 
 var builder = WebApplication.CreateBuilder(args);
 {
-    builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
+    builder.Services.AddApplication().AddInfrasctructure();
     builder.Services.AddControllers();
 
     builder.Services.AddEndpointsApiExplorer();
