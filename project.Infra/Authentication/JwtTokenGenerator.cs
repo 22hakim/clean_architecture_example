@@ -4,13 +4,21 @@ using System.IdentityModel.Tokens.Jwt;
 using project.Application.Common.Interfaces.Authentication;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using project.Application.Common.Interfaces.Services;
+using Microsoft.Extensions.Options;
 
 namespace project.Infra.Authentication;
 
 public class JwtTokenGenerator : IJwtTokenGenerator
 {
-    public JwtTokenGenerator()
+    private readonly IDateTimeProvider _dateTimeProvider;
+    private readonly JwtConfig _jwtConfig;
+
+    public JwtTokenGenerator(IDateTimeProvider dateTimeProvider,
+                             IOptions<JwtConfig> jwtOptions)
     {
+        _dateTimeProvider = dateTimeProvider;
+        _jwtConfig = jwtOptions.Value;
     }
 
     public string GenerateToken(Guid userID, string firstName, string lastName)
@@ -24,15 +32,16 @@ public class JwtTokenGenerator : IJwtTokenGenerator
         };
 
         var signInCredentials = new SigningCredentials(
-            new SymmetricSecurityKey(Encoding.UTF8.GetBytes("secret-key")),
+            new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtConfig.Secret)),
             SecurityAlgorithms.HmacSha256);
 
         var sercurityToken = new JwtSecurityToken(
-            issuer: "we will see", // from where the token comes 
-            expires : DateTime.Today.AddDays(2),
+            issuer: _jwtConfig.Issuer,
+            audience: _jwtConfig.Audience,
+            expires: _dateTimeProvider.Now.AddHours(_jwtConfig.ExpiryMinutes),
             claims: claims,
             signingCredentials: signInCredentials
-            );
+            ) ;
 
         return new JwtSecurityTokenHandler().WriteToken(sercurityToken);
     }

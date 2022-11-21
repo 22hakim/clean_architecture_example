@@ -3,7 +3,8 @@ using project.Infra;
 
 var builder = WebApplication.CreateBuilder(args);
 {
-    builder.Services.AddApplication().AddInfrasctructure();
+    builder.Services.AddApplication()
+                    .AddInfrasctructure(builder.Configuration);
     builder.Services.AddControllers();
 
     builder.Services.AddEndpointsApiExplorer();

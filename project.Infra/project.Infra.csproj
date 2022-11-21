@@ -13,6 +13,8 @@
     <None Remove="Authentication\" />
     <None Remove="Services\" />
     <None Remove="System.IdentityModel.Tokens.Jwt" />
+    <None Remove="Microsoft.Extensions.Configuration" />
+    <None Remove="Microsoft.Extensions.Options.ConfigurationExtensions" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Authentication\" />
@@ -20,5 +22,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.25.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="7.0.0" />
   </ItemGroup>
 </Project>
