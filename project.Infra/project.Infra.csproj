@@ -15,10 +15,12 @@
     <None Remove="System.IdentityModel.Tokens.Jwt" />
     <None Remove="Microsoft.Extensions.Configuration" />
     <None Remove="Microsoft.Extensions.Options.ConfigurationExtensions" />
+    <None Remove="Persistence\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Authentication\" />
     <Folder Include="Services\" />
+    <Folder Include="Persistence\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.25.0" />

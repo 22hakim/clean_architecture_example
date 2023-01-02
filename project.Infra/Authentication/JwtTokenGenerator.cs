@@ -6,6 +6,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using project.Application.Common.Interfaces.Services;
 using Microsoft.Extensions.Options;
+using project.Domain.Entities;
 
 namespace project.Infra.Authentication;
 
@@ -21,13 +22,13 @@ public class JwtTokenGenerator : IJwtTokenGenerator
         _jwtConfig = jwtOptions.Value;
     }
 
-    public string GenerateToken(Guid userID, string firstName, string lastName)
+    public string GenerateToken(User user)
     {
         var claims = new[]
         {
-             new Claim(JwtRegisteredClaimNames.Sub, userID.ToString()),
-             new Claim(JwtRegisteredClaimNames.GivenName, firstName),
-             new Claim(JwtRegisteredClaimNames.FamilyName, lastName),
+             new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
+             new Claim(JwtRegisteredClaimNames.GivenName, user.FirstName),
+             new Claim(JwtRegisteredClaimNames.FamilyName, user.LastName),
              new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
         };
 

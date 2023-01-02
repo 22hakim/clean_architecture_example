@@ -1,12 +1,11 @@
 ﻿using System;
+using project.Domain.Entities;
+
 namespace project.Application.Services.Authentication;
 
 public record AuthenticationResult
 (
-    Guid Id,
-    string FirstName,
-    string LastName,
-    string Email,
+    User user,
     string Token
 );
 
