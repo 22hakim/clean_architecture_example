@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using project.api.Filters;
 using project.Application.Services.Authentication;
 using project.Contracts.Authentication;
 
@@ -7,6 +8,7 @@ namespace project.Contracts.Controllers;
 
 [ApiController]
 [Route("auth")]
+[ErrorHandlingFilter]
 public class AuthenticationController : ControllerBase
 {
     private readonly IAuthenticationService  _authenticationService;
